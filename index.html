@@ -1,65 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Magicentia</title>
   <style>
+    /* 모든 요소에 box-sizing 적용 */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
     body {
-  margin: 0;
-  font-family: 'Noto Sans', sans-serif;
-  background-color: black;
-  color: white;
-}
+      margin: 0;
+      font-family: 'Noto Sans', sans-serif;
+      background-color: black;
+      color: white;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
 
     .header, .footer {
       text-align: center;
       padding: 20px 10px;
       color: #933e3e;
-      
     }
+
     .line {
       width: 90%;
       margin: 10px auto;
       border-top: 1px solid #933e3e;
     }
+
     .logo {
       width: 120px;
       margin: 20px auto;
       display: block;
       opacity: 1;
     }
+
     .title {
       text-align: center;
       font-size: 48px;
       font-weight: bold;
     }
+
     .subtitle {
       text-align: center;
       font-size: 15px;
       margin-bottom: 40px;
     }
+
     .section {
       background-color: white;
       color: #933e3e;
       padding: 40px 20px;
-      border-radius: 40px 40px 40px 40px;
+      border-radius: 40px;
+      margin: 0 10px; /* 좌우 여백 약간 추가 */
     }
+
     .section h2 {
       font-size: 36px;
       margin-bottom: 10px;
       border-bottom: 1px solid #933e3e;
       display: inline-block;
     }
+
     .section p {
       font-size: 16px;
       line-height: 1.8;
     }
+
     .categories {
       display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 4열 */
-      grid-auto-rows: 100px; /* 기본 row 높이 */
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 100px;
       gap: 15px;
       margin-top: 20px;
     }
@@ -70,33 +87,46 @@
       padding: 10px;
       font-size: 30px;
       text-align: right;
-      
       display: flex;
-      align-items: right;
-      justify-content: right;
+      align-items: flex-end;
+      justify-content: flex-end;
       background-color: white;
       color: #6e2b2b;
       font-weight: bold;
     }
 
-    /* 위치 조정 */
-    .utility { grid-column: 1 / 1; grid-row: 1 / 2; }
-    .combat  { grid-column: 3 / 4; grid-row: 1 / 2; }
-    .travel  { grid-column: 4 / 5; grid-row: 1 / 2; }
+    /* 위치 조정 (3열 범위 내) */
+    .utility { grid-column: 1 / 2; grid-row: 1 / 2; }
+    .combat  { grid-column: 2 / 3; grid-row: 1 / 2; }
+    .travel  { grid-column: 3 / 4; grid-row: 1 / 2; }
     .change  { grid-column: 1 / 3; grid-row: 2 / 3; }
     .dark    { grid-column: 3 / 4; grid-row: 2 / 3; }
-    .emotion { grid-column: 4 / 5; grid-row: 2 / 4; } /* 2행~3행 걸침 */
-  
+    .emotion { grid-column: 1 / 4; grid-row: 3 / 4; }
+
     .quote {
       font-size: 18px;
       text-align: center;
       color: #933e3e;
-      padding: 40px 20px; 
+      padding: 40px 20px;
     }
+
     .quote small {
       display: block;
       margin-top: 10px;
       font-size: 14px;
+    }
+
+    /* 반응형 소폭 보완 (원하면 삭제 가능) */
+    @media (max-width: 480px) {
+      .title {
+        font-size: 36px;
+      }
+      .section {
+        padding: 30px 15px;
+      }
+      .category-box {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
@@ -130,12 +160,12 @@
       언론·출판에 대한 허가나 검열과 집회·결사에 대한 허가는
     </p>
     <div class="categories">
-      <div class="category-box"><br>Utility</div>
-      <div class="category-box"><br>Combat</div>
-      <div class="category-box"><br>Travel</div>
-      <div class="category-box"><br>Change</div>
-      <div class="category-box"><br>Dark</div>
-      <div class="category-box"><br>Emotion</div>
+      <div class="category-box utility"><br>Utility</div>
+      <div class="category-box combat"><br>Combat</div>
+      <div class="category-box travel"><br>Travel</div>
+      <div class="category-box change"><br>Change</div>
+      <div class="category-box dark"><br>Dark</div>
+      <div class="category-box emotion"><br>Emotion</div>
     </div>
   </div>
 
